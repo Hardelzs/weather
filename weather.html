@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="card">
+      <div id="search">
+        <input type="text" id="userInput" placeholder="Enter your Name" />
+        <button type="submit" id="button1">search</button>
+        <h1></h1>
+      </div>
+    </div>
+
+    <style>
+      #card {
+        max-width: 500px;
+        max-height: 400px;
+        color: #ffffff;
+        margin: 30px auto 0px;
+        background-color: skyblue;
+      }
+
+      #search {
+        align-items: center;
+        background-color: armygreen;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      input {
+        border: none;
+        border-bottom: black solid 2px;
+        border-radius: 10px;
+        height: 20px;
+      }
+      input:focus {
+        outline: none;
+        border: none;
+        border-bottom: black solid 2px;
+      }
+      button {
+        cursor: pointer;
+      }
+
+      #output {
+        margin-top: 20px;
+      }
+    </style>
+
+    <script>
+      let isInputIncorrect = false;
+      const userInputField = document.getElementById("userInput");
+      const button2 = document.getElementById("button1");
+
+      button2.addEventListener("click", () => {
+        const user = userInputField.value;
+
+        // alert('press ok to website to safe you ')
+
+        if (user == "") {
+          const h1Element = document.querySelector("h1");
+          h1Element.innerHTML = "pls insert your fucking name pls";
+          h1Element.style.color = "red";
+          isInputIncorrect = true;
+          return;
+        }
+
+        if (!isNaN(user)) {
+          const h1Set = document.querySelector("h1");
+          h1Set.innerHTML = "Please insert alphabets";
+          h1Set.style.color = "red";
+          isInputIncorrect = true;
+          return;
+        }
+
+        if (isInputIncorrect) {
+          const h1Element = document.querySelector("h1");
+          h1Element.innerHTML = `Thank you very much ${user}`;
+          h1Element.style.color = "black";
+          return;
+        }
+
+        document.querySelector("h1").innerHTML = `Thank you very much ${user}`;
+      });
+    </script>
+  </body>
+</html>
